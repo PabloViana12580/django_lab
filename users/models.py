@@ -6,4 +6,9 @@ class Usuario(models.Model):
 	apellido = models.CharField(max_length=20)
 	email = models.EmailField(max_length=50)
 	username = models.CharField(max_length=20)
-	#posts foreign key 
+
+class Post(models.Model):
+	titulo = models.CharField(max_length=40)
+	contenido = models.CharField(max_length=200)
+	likes = models.IntegerField()
+	author = models.ForeignKey(Usuario, on_delete=models.CASCADE)

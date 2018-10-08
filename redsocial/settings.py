@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'redsocial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lab_8',
+        'NAME': 'laboratorio_8',
         'USER': 'postgres',
         'PASSWORD': 'invalido1234',
         'HOST': 'localhost',
