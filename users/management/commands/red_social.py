@@ -61,14 +61,18 @@ class Command(BaseCommand):
 	        		elif int(decitionUser) == 3:
 	        			print("\n*-------------- post de " + username +" ------------")
 	        			post_usuario_especifico = Post.objects.filter(author=id_user)
-	        			for p_esp in post_usuario_especifico:
-	        				print("id: " + str(p_esp.id) + " titulo: " + p_esp.titulo)
-	        			delid_post = input("Escriba el id del post que desea borrar: ")
-	        			try:
-	        				post_del = Post.objects.get(id=delid_post)
-	        				post_del.delete()
-	        			except Exception as e:
-	        				print("No es un id valido, pruebe nuevamente")
+	        			if post_usuario_especifico:
+		        			for p_esp in post_usuario_especifico:
+		        				print("id: " + str(p_esp.id) + " titulo: " + p_esp.titulo)
+		        			delid_post = input("Escriba el id del post que desea borrar: ")
+		        			try:
+		        				post_del = Post.objects.get(id=delid_post)
+		        				post_del.delete()
+		        				print("Se ha borrado el post!")
+		        			except Exception as e:
+		        				print("No es un id valido, pruebe nuevamente")
+		        		else:
+		        			print("No hay post de este usuario!")
 	        		elif int(decitionUser) == 4:
 	        			post = False
 	        	if(post==False):
